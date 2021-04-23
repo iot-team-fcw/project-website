@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Columbia University EECS E4764 IoT Project Report #0</title>
+		<title>Columbia University EECS E4764 IoT Project Report #8</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -85,7 +85,7 @@
 								<iframe width="560" height="315" src="https://www.youtube.com/embed/NXoKPbrWVN0" frameborder="0" allowfullscreen></iframe>
 
 								<h2 class="alt">Pet Interaction Stream</h2>
-								<p>A streaming platform allowing viewers to interact with pets.</p>
+								<p>A streaming platform allowing viewers to interact with pets</p>
 								<p>This service runs on Twich<sup>[1]</sup>, where a chatbot monitors the stream chat for viewer requests. 
 									Viewers are able to submit commands that will move physical devices allowing for animals to play.
 								</p>
@@ -106,9 +106,13 @@
 								<h2>Motivation</h2>
 							</header>
 
-							<p align="left">According to a study<sup>[2]</sup> done by the University of Leeds in the UK, and reported by CNN,
+							<p align="left">
+								Many studies have shown that interacting with animals does have some health benefits.
+								According to a study<sup>[2]</sup> done by the University of Leeds in the UK, and reported by CNN,
 								it was found that levels of blood pressure, heart rate and anxiety dropped by significant amounts
-								when watching "cute animal videos". With Covid-19 preventing people from living as socially as before,
+								when watching "cute animal videos". 
+								These results are backed up by the National Insitutes of Health<sup>[3]</sup>, a part of the US Department of Health & Human Services.
+								With Covid-19 preventing people from living as socially as before,
 								we thought it'd be a good idea to give people a way to interact with animals, without having to do so
 								physically. Thus, the idea of a pet interaction stream was born. 
 							</p>
@@ -130,12 +134,13 @@
 
 							<h3 align="left">Architecture</h3>
 
-							<p align="left">At a high-level, this service uses Twitch and cloud services, a python script, a Raspberry Pi and stepper motor(s) to allow users to interact with animals over live streams. <br>
+							<p align="left">
+								At a high-level, this service uses Twitch and cloud services, a python script, a Raspberry Pi and stepper motor(s) to allow users to interact with animals over live streams. <br>
 								Viewers are able to use our Twitch channel to submit chat requests. These requests would be commands,
 								such as 'left' or 'right', 'laser on' or 'laser off', and possibly more complex interactions, to move the corresponding stepper motor, manipulate a controller, or initiate other features. A python script monitors the chat, waiting to direct specific commands to the Raspberry Pi via HTTP requests.
 								The Pi device then communicates with the motors and other circuity via GPIO commands. 
 								<article class="item">
-									<a href="#" class="image fit"><img src="images/piCameraStream.jpg" alt="" /></a>
+									<a class="image fit"><img src="images/piCameraStream.jpg" alt="" /></a>
 									<header>
 										<h3>Raspberry Pi video streaming</h3>
 									</header>
@@ -145,10 +150,11 @@
 
 							<h3 align="left">Technical Components</h3>
 
-							<p align="left">Twitch was chosen as the streaming platform because of its incredible cloud services.
+							<p align="left">
+								Twitch was chosen as the streaming platform because of its incredible cloud services.
 								Our stream runs on a Rapsberry Pi, yet the stream info and management services are accessible via any browser for the stream host.
 								The Raspberry Pi with the camera broadcasted the stream to our Twitch channel by broadcasting the stream to a specified URL.
-								We used a library<sup>[3]</sup> to send data, including secret Twitch channel data, to the URL in order to start and maintain stream data tramission.
+								We used a library<sup>[4]</sup> to send data, including secret Twitch channel data, to the URL in order to start and maintain stream data tramission.
 								A python script running on a one of the Raspberry Pi interfaced with our channel via Twitch's IRC protocol.
 								The IRC (Instant Relay Chat) protocol allowed for script to interact with stream chats by providing the stream information to their APIs. <br>
 								Once the script receives commands from the Twitch chat, it polls the most frequent request in the span of a short period of time, and performs the
@@ -157,7 +163,7 @@
 								Special serial bus protocols aren't needed because of the simplicity in the commands being executed.
 
 								<article class="item">
-									<a href="#" class="image fit"><img src="images/prototype.jpg" alt="" /></a>
+									<a class="image fit"><img src="images/prototype.jpg" alt="" /></a>
 									<header>
 										<h3>First Generation Prototype</h3>
 									</header>
@@ -169,7 +175,8 @@
 
 							<h3 align="left">Prototype</h3>
 
-							<p align="left">Our first prototype had a laser pointer attached to a stepper motor, connected to a Raspberry Pi. Another Raspberry Pi was used
+							<p align="left">
+								Our first prototype had a laser pointer attached to a stepper motor, connected to a Raspberry Pi. Another Raspberry Pi was used
 								to stream a live video feed to our twitch channel. As the python script monitored the chat, it collected commands such as "right", "left", "on" and "off"
 								and performed them within 0.5s of their request. For the initial prototype, no polling of commands was done; instead it was on a first-come-first-serve basis.
 							</p>
@@ -205,9 +212,11 @@
 								<h2>References</h2>
 							</header>
 
-							<p align="left">[1] https://www.twitch.tv/IoT_Project<br>
+							<p align="left">
+								[1] https://www.twitch.tv/willry1098<br>
 								[2] https://www.cnn.com/2020/09/27/us/watching-cute-animals-study-scn-trnd/index.html <br>
-								[3] https://github.com/jimbobbennett/RaspberryPiTwitchStreamer
+								[3] https://newsinhealth.nih.gov/2018/02/power-pets <br>
+								[4] https://github.com/jimbobbennett/RaspberryPiTwitchStreamer
 							</p>
 
 						</div>
@@ -228,7 +237,7 @@
 							<div class="row">
 								<div class="4u 12u$(mobile)">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/charles.jpeg" alt="" /></a>
+										<a class="image fit"><img src="images/charles.jpeg" alt="" /></a>
 										<header>
 											<h3>Charles Escott</h3>
 											<p>BS EE Student at Columbia University</p>
@@ -237,7 +246,7 @@
 								</div>
 								<div class="4u 12u$(mobile)">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/filip.jpeg" alt="" /></a>
+										<a class="image fit"><img src="images/filip.jpeg" alt="" /></a>
 										<header>
 											<h3>Filip Matic</h3>
 											<p>MS EE Student at Columbia University</p>
@@ -246,7 +255,7 @@
 								</div>
 								<div class="4u$ 12u$(mobile)">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/will.jpeg" alt="" /></a>
+										<a class="image fit"><img src="images/will.jpeg" alt="" /></a>
 										<header>
 											<h3>William Ryan</h3>
 											<p>BS CE Student at Columbia University</p>
