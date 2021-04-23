@@ -126,15 +126,14 @@
 								<h2>System</h2>
 							</header>
 
-							<p align="left">Remember to use combination of descriptions, photos, and figures</p>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/AKZr4n_gj3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 							<h3 align="left">Architecture</h3>
 
-							<p align="left">At a high-level, this service uses Twitch and cloud services, a python script, a Raspberry Pi and a stepper motor. <br>
+							<p align="left">At a high-level, this service uses Twitch and cloud services, a python script, a Raspberry Pi and stepper motor(s) to allow users to interact with animals over live streams. <br>
 								Viewers are able to use our Twitch channel to submit chat requests. These requests would be commands,
-								such as 'left' or 'right', to move the corresponding stepper motor. A python script monitors
-								the chat, waiting to direct specific commands to the Raspberry Pi via HTTP requests.
-								The Pi device then communicates with the motors via GPIO commands. 
+								such as 'left' or 'right', 'laser on' or 'laser off', and possibly more complex interactions, to move the corresponding stepper motor, manipulate a controller, or initiate other features. A python script monitors the chat, waiting to direct specific commands to the Raspberry Pi via HTTP requests.
+								The Pi device then communicates with the motors and other circuity via GPIO commands. 
 								<article class="item">
 									<a href="#" class="image fit"><img src="images/piCameraStream.jpg" alt="" /></a>
 									<header>
@@ -156,7 +155,16 @@
 								most frequently requested command. 
 								The python script running on the Raspberry Pi then invokes a certain GPIO command to move a peripherals.
 								Special serial bus protocols aren't needed because of the simplicity in the commands being executed.
+
+								<article class="item">
+									<a href="#" class="image fit"><img src="images/prototype.jpg" alt="" /></a>
+									<header>
+										<h3>First Generation Prototype</h3>
+									</header>
+								</article>
 							</p>
+
+
 
 
 							<h3 align="left">Prototype</h3>
@@ -179,13 +187,10 @@
 								<h2>Results</h2>
 							</header>
 
-							<p align="left">Remember to use figures to help illustrate results</p>
-
-
 							<article class="item">
-								<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+								<a href="https://www.twitch.tv/willry1098" class="image fit"><img src="images/stream.jpg" alt="" /></a>
 								<header>
-									<h3>Caption</h3>
+									<h3>Come try it for yourself!</h3>
 								</header>
 							</article>
 
@@ -235,16 +240,16 @@
 										<a href="#" class="image fit"><img src="images/filip.jpeg" alt="" /></a>
 										<header>
 											<h3>Filip Matic</h3>
-											<p>MS EE student at Columbia University</p>
+											<p>MS EE Student at Columbia University</p>
 										</header>
 									</article>
 								</div>
 								<div class="4u$ 12u$(mobile)">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+										<a href="#" class="image fit"><img src="images/will.jpeg" alt="" /></a>
 										<header>
 											<h3>William Ryan</h3>
-											<p>Description and link</p>
+											<p>BS CE Student at Columbia University</p>
 										</header>
 									</article>
 								</div>
