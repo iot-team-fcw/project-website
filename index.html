@@ -24,7 +24,7 @@
 					<!-- Logo -->
 						<div id="logo">
 							<!-- <span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span> -->
-							<h1 id="title">Pet Stream Interactor</h1>
+							<h1 id="title">Pet Interaction Stream</h1>
 							<p>Columbia University <br>
 								EECS E4764 Spring '21 Internet of Things<br>
 								Intelligent and Connected Systems<br>
@@ -84,9 +84,11 @@
 
 								<iframe width="560" height="315" src="https://www.youtube.com/embed/NXoKPbrWVN0" frameborder="0" allowfullscreen></iframe>
 
-								<h2 class="alt">Pet Stream Interactor</h2>
-								<p>Pet Stream Interactor is a streaming platform that allows viewers to interact with pets by submitting requests through the stream.</p>
-								<p>(Abstract here)</p>
+								<h2 class="alt">Pet Interaction Stream</h2>
+								<p>A streaming platform allowing viewers to interact with pets.</p>
+								<p>This service runs on Twich<sup>[1]</sup>, where a chatbot monitors the stream chat for viewer requests. 
+									Viewers are able to submit commands that will move physical devices allowing for animals to play.
+								</p>
 
 
 							<footer>
@@ -104,7 +106,12 @@
 								<h2>Motivation</h2>
 							</header>
 
-							<p align="left">You can choose to use photos or figures to help</p>
+							<p align="left">According to a study<sup>[2]</sup> done by the University of Leeds in the UK, and reported by CNN,
+								it was found that levels of blood pressure, heart rate and anxiety dropped by significant amounts
+								when watching "cute animal videos". With Covid-19 preventing people from living as socially as before,
+								we thought it'd be a good idea to give people a way to interact with animals, without having to do so
+								physically. Thus, the idea of a pet interaction stream was born. 
+							</p>
 
 
 
@@ -123,17 +130,41 @@
 
 							<h3 align="left">Architecture</h3>
 
-							<p align="left">Blah blah blah</p>
+							<p align="left">At a high-level, this service uses Twitch and cloud services, a python script, a Raspberry Pi and a stepper motor. <br>
+								Viewers are able to use our Twitch channel to submit chat requests. These requests would be commands,
+								such as 'left' or 'right', to move the corresponding stepper motor. A python script monitors
+								the chat, waiting to direct specific commands to the Raspberry Pi via HTTP requests.
+								The Pi device then communicates with the motors via GPIO commands. 
+								<article class="item">
+									<a href="#" class="image fit"><img src="images/piCameraStream.jpg" alt="" /></a>
+									<header>
+										<h3>Raspberry Pi video streaming</h3>
+									</header>
+								</article>
+							</p>
 
 
 							<h3 align="left">Technical Components</h3>
 
-							<p align="left">Blah blah blah</p>
+							<p align="left">Twitch was chosen as the streaming platform because of its incredible cloud services.
+								Our stream runs on a Rapsberry Pi, yet the stream info and management services are accessible via any browser for the stream host.
+								The Raspberry Pi with the camera broadcasted the stream to our Twitch channel by broadcasting the stream to a specified URL.
+								We used a library<sup>[3]</sup> to send data, including secret Twitch channel data, to the URL in order to start and maintain stream data tramission.
+								A python script running on a one of the Raspberry Pi interfaced with our channel via Twitch's IRC protocol.
+								The IRC (Instant Relay Chat) protocol allowed for script to interact with stream chats by providing the stream information to their APIs. <br>
+								Once the script receives commands from the Twitch chat, it polls the most frequent request in the span of a short period of time, and performs the
+								most frequently requested command. 
+								The python script running on the Raspberry Pi then invokes a certain GPIO command to move a peripherals.
+								Special serial bus protocols aren't needed because of the simplicity in the commands being executed.
+							</p>
 
 
 							<h3 align="left">Prototype</h3>
 
-							<p align="left">Blah blah blah</p>
+							<p align="left">Our first prototype had a laser pointer attached to a stepper motor, connected to a Raspberry Pi. Another Raspberry Pi was used
+								to stream a live video feed to our twitch channel. As the python script monitored the chat, it collected commands such as "right", "left", "on" and "off"
+								and performed them within 0.5s of their request. For the initial prototype, no polling of commands was done; instead it was on a first-come-first-serve basis.
+							</p>
 
 
 
@@ -169,7 +200,10 @@
 								<h2>References</h2>
 							</header>
 
-							<p align="left">Blah blah blah</p>
+							<p align="left">[1] https://www.twitch.tv/IoT_Project<br>
+								[2] https://www.cnn.com/2020/09/27/us/watching-cute-animals-study-scn-trnd/index.html <br>
+								[3] https://github.com/jimbobbennett/RaspberryPiTwitchStreamer
+							</p>
 
 						</div>
 					</section>
@@ -191,17 +225,17 @@
 									<article class="item">
 										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
 										<header>
-											<h3>Team Member</h3>
+											<h3>Charles Escott</h3>
 											<p>Description and link</p>
 										</header>
 									</article>
 								</div>
 								<div class="4u 12u$(mobile)">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+										<a href="#" class="image fit"><img src="images/filip.jpeg" alt="" /></a>
 										<header>
-											<h3>Team Member</h3>
-											<p>Description and link</p>
+											<h3>Filip Matic</h3>
+											<p>MS EE student at Columbia University</p>
 										</header>
 									</article>
 								</div>
@@ -209,7 +243,7 @@
 									<article class="item">
 										<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
 										<header>
-											<h3>Team Member</h3>
+											<h3>William Ryan</h3>
 											<p>Description and link</p>
 										</header>
 									</article>
@@ -228,9 +262,9 @@
 							</header>
 
 							<p align="left">
-								<strong>Contact Name 1: </strong>email here</br>
-								<strong>Contact Name 2: </strong>email here</br>
-								<strong>Other Contact Information: </strong>other contact info</br>
+								<strong>Charles Escott: </strong>cce2129@columbia.edu</br>
+								<strong>Filip Matic: </strong>filip.matic@columbia.edu</br>
+								<strong>William Ryan: </strong>wr2299@columbia.edu</br>
 							</br>
 								<strong>Columbia University </strong><a href="http://www.ee.columbia.edu">Department of Electrical Engineering</a><br>
 								<!-- <strong>Class Website:</strong>
